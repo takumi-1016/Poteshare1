@@ -1,0 +1,15 @@
+current directory: /Users/takumi/Desktop/prog/Poteshare/vedor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/takumi/.rbenv/versions/3.1.2/bin/ruby -I /Users/takumi/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220719-51862-rmc6q6.rb extconf.rb
+creating Makefile
+
+current directory: /Users/takumi/Desktop/prog/Poteshare/vedor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= clean
+
+current directory: /Users/takumi/Desktop/prog/Poteshare/vedor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\=
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/takumi/Desktop/prog/Poteshare/vedor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20220719-51862-8yv6ir/skiptrace/internal
