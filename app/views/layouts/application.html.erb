@@ -11,6 +11,25 @@
   </head>
 
   <body>
+    <header>
+     <div class = "header-inner">
+      <div class = "header-left-menu">
+        <%= link_to root_path do%>
+          <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png', alt: 'ロゴイメージ' %>
+        <% end %>  
+      </div>
+      <div class = "header-right-menu">  
+        <% if user_signed_in? %>
+          
+        <% else %>
+          <%= link_to 'ログイン', user_session_path, class: 'btn btn-primary' %>
+          <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-success' %>
+        <% end %>
+      </div>
+     </div>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
