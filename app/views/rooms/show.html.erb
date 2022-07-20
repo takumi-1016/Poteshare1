@@ -1,0 +1,29 @@
+<div class="container room-show">
+    <div class="row">
+        <div class="room-show-detail">
+            <%= image_tag @room.room_image.url, class: "room-image" %>
+            <div class="room-show-detail-content">
+                <div class="room-show-detail-icon">       
+                    <%= image_tag @room.user.user_image.url, :alt => 'アイコン', class: "host-icon" %>
+                </div>
+                <div class="room-show-profile">
+                    <p class="room-show-profile-name">
+                        <%= @room.room_name %>
+                    </p>
+                    <p class="room-show-profile-address">
+                        <%= @room.room_address %>
+                    </p>
+                    <p class="room-show-detail-introduction">
+                        <%= @room.room_introduction %>
+                    </p>
+                </div>
+                <div class="room-show-nav">
+                    <h5 class="price-icon">
+                        ￥ <%= @room.room_price %> / 日
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
