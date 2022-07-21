@@ -13,16 +13,16 @@
     </thead>
     <tbody>
            <% @rooms.each do |room| %>
-           <% if room.user_id == current_user.id %>
-                <tr>
-                <td><%= link_to (image_tag room.room_image.url, :size => '240x140'), room_path(room.id) %></td>
-                <td><%= link_to room.room_name, room_path(room.id) %></td>
-                <td><%= room.room_introduction %></td>
-                <td>¥ <%= room.room_price %></td>
-                <td><%= room.user.id %></td>
-                <td><%= room.user.name %></td>
-                </tr>
-            <% end %>
+              <% if room.user_id == current_user.id %>
+                    <tr>
+                    <td><%= link_to (image_tag room.room_image.url, :size => '240x140'), room_path(room.id) %></td>
+                    <td><%= link_to room.room_name, room_path(room.id) %></td>
+                    <td><%= room.room_introduction %></td>
+                    <td>¥ <%= room.room_price %></td>
+                    <td><%= room.user.id %></td>
+                    <td><%= room.user.name %></td>
+                    </tr>
+                <% end %>
             <% end %>
     </tbody>
   </table>

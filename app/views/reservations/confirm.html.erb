@@ -1,0 +1,27 @@
+<div class="container reservation-new">
+  <div class="reservations-new-nav">
+    <h4 class="reservations-new-check-content">予約内容確認</h4>
+    <h5 class="price-icon">
+      ¥ <%= @price %> / 日
+    </h5>
+    <div class="reservations-new-date-select">
+        <%= form_with model: @reservation,local: ture do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :people_number, value: @reservation.people_number %>
+            <%= f.label :start_date, "開始日" %>
+            <%= f.date_field :start_date, value:@reservation.start_date ,readonly: true %>
+            <%= f.label :end_date, "終了日" %>
+            <%= f.date_field :end_date, value:@reservation.end_date ,readonly: true %>
+
+            <h6 class="reservations-new-check-content">使用日数：<%= @days %>日</h6>
+            <h6 class="reservations-new-check-content">人数：<%= @reservation.people_number %>人</h6>
+
+            <%= f.label :reservation_price, "合計金額" %>
+            <%= f.text_field :reservation_price, value:@price ,readonly: true %>
+            <%= f.submit"予約を確定" %>
+            
+        <% end %>
+    </div>
+  </div>
+</div> 

@@ -26,4 +26,14 @@
         </div>
     </div> 
 </div>
-
+ <%= form_with model: @reservation, url: reservations_confirm_path, local: true do |f| %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.label :start_date, "開始日" %>
+            <%= f.date_field :start_date, class: "input-area" %>
+            <%= f.label :end_date, "終了日" %>
+            <%= f.date_field :end_date, class: "input-area" %>
+            <%= f.label :people_number, "宿泊人数" %>
+            <%= f.number_field :people_number, class: "input-area" %>
+            <%= f.submit"予約する", class: "btn" %>
+    <%end%>

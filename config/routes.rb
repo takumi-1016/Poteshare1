@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
 
   root to: "home#top"
 
-
+  resources :reservations
+  post 'reservations/confirm'
 
 end
