@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :rooms
-
+  get "room/post", to: "rooms#post"
 
   root to: "home#top"
 

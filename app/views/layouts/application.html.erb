@@ -17,6 +17,14 @@
         <%= link_to root_path do%>
           <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png', alt: 'ロゴイメージ' %>
         <% end %>  
+        <%= search_form_for @q, url: room_post_path do |f| %>
+        <%= f.label :room_name_cont, 'キーワード' %>
+        <%= f.search_field :room_name_cont %>
+        <%= f.label :room_address_cont, '場所' %>
+        <%= f.search_field :room_address_cont %>
+        <br>
+        <%= f.submit '検索' %>
+    <% end %>
       </div>
       <div class = "header-right-menu">  
         <% if user_signed_in? %>
@@ -25,6 +33,7 @@
           <%= link_to '登録済みルーム一覧', rooms_path, class: 'nav-link' %>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           <%= link_to "予約済みルーム一覧", reservations_path, class: 'nav-link' %>
+          <%= link_to '宿泊施設一覧', room_post_path, class: 'nav-link' %>
             
         <% else %>
           <%= link_to 'ログイン', user_session_path, class: 'btn btn-primary' %>

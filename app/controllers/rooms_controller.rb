@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+ 
+
   def index
     @rooms = Room.all
   end
@@ -21,11 +23,14 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @user = @room.user
-    
-  
-    
     @reservation = Reservation.new
-
+  end
+  #ルーム検索用ページ
+  def post
+    @rooms = Room.all
+    @q = Room.ransack(params[:q])
+    @results = @q.result
+    @number = @rooms.count
   end
   
   private
