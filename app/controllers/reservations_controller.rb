@@ -1,13 +1,14 @@
 class ReservationsController < ApplicationController
-  def index
-    @reservations = Reservation.all
+  def index   
+   
+    @reservations = Reservation.all 
+    @rooms = Room.all
   end
 
   def create
     @room = Room.find(params[:reservation][:room_id])
     @user = current_user
     @reservation = Reservation.new(reservation_params)
-    binding.pry
     if @reservation.save!
       redirect_to root_path, notice:"予約が完了しました。"
     else
@@ -20,10 +21,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(confirm_reservation_params)
     
     @room = Room.find(params[:reservation][:room_id])
-    binding.pry
     @days = (@reservation.end_date - @reservation.start_date).to_i
     @price = @days * @room.room_price * @reservation.people_number
-    binding.pry
   end
 
   private

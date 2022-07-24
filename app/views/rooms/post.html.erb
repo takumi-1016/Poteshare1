@@ -1,22 +1,21 @@
-<h1>検索結果<%=@number%>件<h1>
-    <table>
-    <thead>
-      <tr align="center">
-        <th>ルーム画像</th>
-        <th>ルーム名</th>
-        <th>ルーム紹介</th>
-        <th>料金</th>
-        <th>作成時</th>
-      </tr>
-    </thead>
+<div class = "container-fluid room">
+  <h4 class="pb-4">検索結果:<%=@number%>件</h4>
+  <div class = "row">
     <% @results.each do |room| %>
-        <tr>
-        <td><%= link_to (image_tag room.room_image.url, :size => '240x140'), room_path(room.id) %></td>
-        <td><%= link_to room.room_name, room_path(room.id) %></td>
-        <td><%= room.room_introduction %></td>
-        <td>¥ <%= room.room_price %></td>
-        <td><%= room.user.id %></td>
-        <td><%= room.user.name %></td>
-        </tr>
-    <% end %>
-</table>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <div class="room-frame-inner">
+          <%= link_to room_path(room.id), class: 'link' do %>
+            <div class = "room-image-out">
+              <%= image_tag room.room_image.url,  :size => '240x140', class: 'room-image' %>
+            </div>
+            <div class="room-profile">
+              <p class="room-profile-name"><%=room.room_name%></p>
+              <p class="room-profile-city"><%= room.room_address %></p>
+              <p class="room-profile-price price-icon">¥ <%= room.room_price %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %> 
+  </div>
+</div>
