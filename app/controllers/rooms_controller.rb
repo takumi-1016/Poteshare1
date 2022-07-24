@@ -1,6 +1,5 @@
 class RoomsController < ApplicationController
- 
-
+  before_action :authenticate_user!, except: [:show,:index,:post]
   def index
     @rooms = Room.all
   end
